@@ -1,10 +1,15 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.recent
+    @years = Picture.all_years_array
   end
 
   def previous_work
     @pictures = Picture.older
+  end
+
+  def pictures_by_year
+    @pictures = Picture.pictures_by_year(params[:year].to_i)
   end
 
   def show

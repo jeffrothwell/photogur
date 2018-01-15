@@ -1,8 +1,12 @@
 <h1>Pictures</h1>
 <%= link_to("New Picture", pictures_path) %><br>
 <%= link_to("Previous Work", previous_work_path) %>
+<p>Pictures by year:</p>
+<% @years.each do |year| %>
+  <p><%= link_to("#{year}", "/pictures_by_year/#{year}") %></p>
+<% end %>
 
 <% @pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+  <%= link_to(image_tag(picture.url), "/#{picture.id}") %>
 <% end %>

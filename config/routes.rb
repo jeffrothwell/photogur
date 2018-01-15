@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get '/previous_work' => 'pictures#previous_work'
 
+  get '/pictures_by_year/:year' => 'pictures#pictures_by_year'
+
   post 'pictures' => 'pictures#create'
   get 'pictures/new' => 'pictures#new'
 
