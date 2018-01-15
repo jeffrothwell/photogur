@@ -3,6 +3,10 @@ class PicturesController < ApplicationController
     @pictures = Picture.where("created_at > ?", 1.month.ago)
   end
 
+  def previous_work
+    @pictures = Picture.where("created_at < ?", 1.month.ago)
+  end
+
   def show
     @picture = Picture.find(params[:id])
   end

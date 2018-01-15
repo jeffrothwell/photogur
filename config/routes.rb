@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pictures#index'
   get '/pictures' => 'pictures#index'
 
+  get '/previous_work' => 'pictures#previous_work'
+
   post 'pictures' => 'pictures#create'
   get 'pictures/new' => 'pictures#new'
 

@@ -1,6 +1,4 @@
-<h1>Pictures</h1>
-<%= link_to("New Picture", pictures_path) %><br>
-<%= link_to("Previous Work", previous_work_path) %>
+<%= link_to("Return to Recent Work", pictures_path) %>
 
 <% @pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
