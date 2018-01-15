@@ -1,10 +1,10 @@
 class PicturesController < ApplicationController
   def index
-    @pictures = Picture.where("created_at > ?", 1.month.ago)
+    @pictures = Picture.recent
   end
 
   def previous_work
-    @pictures = Picture.where("created_at < ?", 1.month.ago)
+    @pictures = Picture.older
   end
 
   def show
