@@ -17,3 +17,11 @@
     <%= f.submit "Save" %>
   </p>
 <% end %>
+
+<% if @picture.errors.any? %>
+  <ul>
+    <% @picture.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
