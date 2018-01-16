@@ -2,6 +2,10 @@ class Picture < ApplicationRecord
 
   validates :artist, :title, :url, presence: true
 
+  validates :title, length: { minimum: 3, maximum: 20 }
+
+  validates :url, uniqueness: true;
+
   def self.recent
     Picture.where("created_at > ?", 1.month.ago)
   end
