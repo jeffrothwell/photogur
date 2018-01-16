@@ -2,3 +2,11 @@
 
 <p><%= @picture.title %>, <%= @picture.artist %></p>
 <img src="<%= @picture.url %>">
+
+<h3>Comments:</h3>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>On <%= comment.created_at %> <%= comment.name %> said:<br>
+    <%= comment.message %> </li>
+  <% end %>
+</ul>
