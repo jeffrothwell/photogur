@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/pictures_by_year/:year' => 'pictures#pictures_by_year'
 
+  resource :users, only: %i(new create)
+
 end
