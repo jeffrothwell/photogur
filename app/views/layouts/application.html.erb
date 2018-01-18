@@ -11,16 +11,18 @@
   <p><%= flash[:notice] %></p>
   <% end %>
   <header>
-    <div class="Title">
-      <h1>Jeff's Photogur</h1>
+    <div class="top-bar">
+      <div class="title">
+        <h1>JEFF'S PHOTOGUR</h1>
+      </div>
+      <div class="userinfo">
+        <% if current_user %>
+          <p class="signedin">Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %></p>
+        <% else %>
+          <p class="signedout"><%= link_to "Log in", new_session_path %><%= link_to "Sign up", new_users_path %></p>
+        <% end %>
+      </div>
     </div>
-    <p class="userinfo">
-      <% if current_user %>
-        Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-      <% else %>
-        <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_users_path %>
-      <% end %>
-    </p>
     <nav>
       <ul>
         <li><%= link_to("New Picture", new_picture_path) %></li>
