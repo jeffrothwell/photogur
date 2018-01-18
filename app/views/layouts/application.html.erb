@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div class="Title">
+      <h1>Jeff's Photogur</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><%= link_to("New Picture", new_picture_path) %></li>
+        <li><%= link_to("Recent Work", pictures_path) %></li>
+      </ul>
+    </nav>
+  </header>
 
 <%= yield %>
 
