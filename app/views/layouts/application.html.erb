@@ -18,6 +18,9 @@
       </ul>
     </nav>
   </header>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
 
 <%= yield %>
 
