@@ -7,10 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+  <% end %>
   <header>
     <div class="Title">
       <h1>Jeff's Photogur</h1>
     </div>
+    <p class="userinfo">
+      <% if current_user %>
+        Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      <% else %>
+        <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_users_path %>
+      <% end %>
+    </p>
     <nav>
       <ul>
         <li><%= link_to("New Picture", new_picture_path) %></li>
@@ -18,9 +28,6 @@
       </ul>
     </nav>
   </header>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
 
 <%= yield %>
 
