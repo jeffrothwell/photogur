@@ -7,6 +7,7 @@ class Picture < ApplicationRecord
   validates :url, uniqueness: true;
 
   has_many :comments
+  belongs_to :user
 
   def self.recent
     Picture.where("created_at > ?", 1.month.ago)
