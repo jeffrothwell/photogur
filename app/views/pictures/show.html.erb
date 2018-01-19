@@ -10,7 +10,10 @@
   <% if @comments.any? %>
     <% @comments.each do |comment| %>
       <li> <span class="list_comment"><%= comment.message %></span>
-        <span class="list_comment_date"><%= comment.created_at.localtime %></span>
+        <span class="list_comment_date"><%= comment.created_at.year %>/
+          <%= comment.created_at.month %>/
+          <%= comment.created_at.day %>
+        </span>
       </li>
     <% end %>
   <% else %>
