@@ -1,4 +1,8 @@
 class PicturesController < ApplicationController
+  before_action :ensure_logged_in, except: [
+    :index, :previous_work, :pictures_by_year, :show
+  ]
+
   def index
     @pictures = Picture.recent
   end

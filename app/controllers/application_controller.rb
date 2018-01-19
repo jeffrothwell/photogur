@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     @years = Picture.all_years_array
   end
 
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please login"
+      redirect_to new_session_url
+    end
+  end
+
   private
 
   def current_user
