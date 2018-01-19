@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+  before_action :find_picture, only: [:show, :edit, :update, :destroy]
   before_action :ensure_logged_in, except: [
     :index, :previous_work, :pictures_by_year, :show
   ]
@@ -16,7 +17,6 @@ class PicturesController < ApplicationController
   end
 
   def show
-    @picture = Picture.find(params[:id])
     @comments = @picture.comments
     @comment = Comment.new
   end
@@ -31,6 +31,7 @@ class PicturesController < ApplicationController
     @picture.title = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
     @picture.url = params[:picture][:url]
+    @picture.user_id = current_user.id
 
 
     if @picture.save
@@ -43,11 +44,11 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
   end
 
   def update
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
 
     @picture.title = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
@@ -62,8 +63,14 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to "/pictures"
+  end
+
+  private
+
+  def find_picture
+    @picture = Picture.find(params[:id])
   end
 end
