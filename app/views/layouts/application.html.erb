@@ -24,15 +24,22 @@
       </div>
     </div>
     <nav>
-      <ul>
+      <ul class="main-navs">
         <li><%= link_to("New Picture", new_picture_path) %></li>
         <li><%= link_to("Recent Work", pictures_path) %></li>
         <li><%= link_to("Previous Work", previous_work_path) %></li>
       </ul>
+      <ul class="year-navs">
+        <li>Pictures by year:</li>
+        <% Picture.all_years_array.each do |year| %>
+          <li><%= link_to("#{year}", "/pictures_by_year/#{year}") %></li>
+        <% end %>
+      </ul>
     </nav>
   </header>
-
-<%= yield %>
+  <main>
+    <%= yield %>
+  </main>
 
 </body>
 </html>

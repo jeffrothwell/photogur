@@ -1,7 +1,6 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.recent
-    @years = Picture.all_years_array
   end
 
   def previous_work

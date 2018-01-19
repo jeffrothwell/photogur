@@ -68,11 +68,25 @@ nav ul {
 }
 
 nav li {
-  width: 33.333333%;
   height: 100%;
   padding-top: 6px;
   float: left;
-  background-color: #a3c0fb;
   text-align: center;
+}
+
+.main-navs li {
+  width: 33.333333%;
+  background-color: #a3c0fb;
   color: black;
+  font-size: 18px;
+}
+
+.year-navs li {
+  width: 25%;
+  background-color: #a3a3a3;
+  color: white;
+}
+
+main {
+  clear: both;
 }

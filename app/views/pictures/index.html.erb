@@ -1,9 +1,4 @@
 <h1>Recent Pictures</h1>
-<p>Pictures by year:</p>
-<% @years.each do |year| %>
-  <p><%= link_to("#{year}", "/pictures_by_year/#{year}") %></p>
-<% end %>
-
 <% @pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
