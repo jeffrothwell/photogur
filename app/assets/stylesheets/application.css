@@ -19,19 +19,32 @@
 
 body {
   font-family: Futura;
-  width: 1050px;
+  width: 950px;
   margin: 0 auto;
 }
 
-header a {
+a {
   text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.top-bar {
+  height: 56px;
 }
 
 .title {
   width: 80%;
+  height: 100%;
   float: left;
   background-color: rgba(66, 137, 244, 0.9);
-  padding-left: 30px;
+  padding: 13px;
+}
+
+.title h1 {
+  font-size: 32px;
 }
 
 .userinfo {
@@ -50,9 +63,14 @@ nav {
   height: 30px;
 }
 
+nav ul {
+  height: 100%;
+}
+
 nav li {
-  list-style: none;
-  width: 50%;
+  width: 33.333333%;
+  height: 100%;
+  padding-top: 6px;
   float: left;
   background-color: #a3c0fb;
   text-align: center;

@@ -3,6 +3,8 @@
 <p><%= @picture.title %>, <%= @picture.artist %></p>
 <img src="<%= @picture.url %>">
 
+<%= render 'comments/comment_form', picture: @picture, comment: @comment %>
+
 <h3>Comments:</h3>
 <ul>
   <% @comments.each do |comment| %>

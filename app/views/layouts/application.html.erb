@@ -13,7 +13,7 @@
   <header>
     <div class="top-bar">
       <div class="title">
-        <h1>JEFF'S PHOTOGUR</h1>
+        <h1><%= link_to( "JEFF'S PHOTOGUR", root_path) %></h1>
       </div>
       <div class="userinfo">
         <% if current_user %>
@@ -27,6 +27,7 @@
       <ul>
         <li><%= link_to("New Picture", new_picture_path) %></li>
         <li><%= link_to("Recent Work", pictures_path) %></li>
+        <li><%= link_to("Previous Work", previous_work_path) %></li>
       </ul>
     </nav>
   </header>
