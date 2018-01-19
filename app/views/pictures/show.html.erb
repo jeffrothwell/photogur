@@ -7,8 +7,12 @@
 
 <h3>Comments:</h3>
 <ul>
-  <% @comments.each do |comment| %>
-    <li>On <%= comment.created_at %> <%= comment.name %> said:<br>
-    <%= comment.message %> </li>
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <li>On <%= comment.created_at %> <%= comment.name %> said:<br>
+      <%= comment.message %> </li>
+    <% end %>
+  <% else %>
+    <li>No one has commented on this picture yet</li>
   <% end %>
 </ul>
