@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :ensure_logged_in
 
   def create
     @picture = Picture.find(params[:picture_id])
