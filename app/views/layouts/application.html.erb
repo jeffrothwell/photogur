@@ -31,7 +31,7 @@
       </ul>
       <ul class="year-navs">
         <li>Pictures by year:</li>
-        <% Picture.all_years_array.each do |year| %>
+        <% @years.each do |year| %>
           <li><%= link_to("#{year}", "/pictures_by_year/#{year}") %></li>
         <% end %>
       </ul>

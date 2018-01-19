@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  @years = Picture.all_years_array
+  before_action :get_years
+
+  def get_years
+    @years = Picture.all_years_array
+  end
 
   private
 
