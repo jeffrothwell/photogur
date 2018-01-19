@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   def create
     @picture = Picture.find(params[:picture_id])
     @comment = @product.reviews.new
-    @comment.name = params[:comment][:name]
     @comment.message = params[:comment][:message]
 
     if @comment.save

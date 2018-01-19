@@ -1,0 +1,10 @@
+<%= form_for [picture, comment], html: {class: "comment_form"} do |f|%>
+  <p>
+    <%= f.label :message %>
+    <%= f.text_area :message, size: "80x4" %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

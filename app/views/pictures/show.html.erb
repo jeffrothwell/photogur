@@ -5,12 +5,13 @@
 
 <%= render 'comments/comment_form', picture: @picture, comment: @comment %>
 
-<h3>Comments:</h3>
+<h3>Previous comments:</h3>
 <ul>
   <% if @comments.any? %>
     <% @comments.each do |comment| %>
-      <li>On <%= comment.created_at %> <%= comment.name %> said:<br>
-      <%= comment.message %> </li>
+      <li> <span class="list_comment"><%= comment.message %></span>
+        <span class="list_comment_date"><%= comment.created_at.localtime %></span>
+      </li>
     <% end %>
   <% else %>
     <li>No one has commented on this picture yet</li>
