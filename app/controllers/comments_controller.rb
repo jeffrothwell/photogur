@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :ensure_logged_in
+  before_action :ensure_owner, except: :create
 
   def create
     @picture = Picture.find(params[:picture_id])
