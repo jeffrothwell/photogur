@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :ensure_logged_in
+  before_action :find_comment, except: :create
   before_action :ensure_owner, except: :create
 
   def create
@@ -20,10 +21,30 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment.message = params[:comment][:message]
 
+    if @comment.save
+      flash[:notice] = "Thanks for the comment"
+      redirect_to picture_path(@comment.picture)
+    else
+      render :edit
+    end
   end
 
   def destroy
 
+  end
+
+  private
+
+  def ensure_owner
+    if session[:user_id] != @comment.user_id
+      flash[:alert] = "You didn't write that comment"
+      redirect_to root_path
+    end
+  end
+
+  def find_comment
+    @comment = Comment.find(params[:id])
   end
 end
