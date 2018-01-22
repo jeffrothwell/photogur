@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @picture = Picture.find(params[:picture_id])
     @comment = @picture.comments.new
     @comment.message = params[:comment][:message]
+    @comment.user = current_user
 
     if @comment.save
       flash[:notice] = "Thanks for the comment"
@@ -32,7 +33,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
+    @comment.destroy
+    redirect_to picture_path(@comment.picture)
   end
 
   private
@@ -40,7 +42,7 @@ class CommentsController < ApplicationController
   def ensure_owner
     if session[:user_id] != @comment.user_id
       flash[:alert] = "You didn't write that comment"
-      redirect_to root_path
+      redirect_to picture_path(@comment.picture)
     end
   end
 
