@@ -3,6 +3,7 @@ class PicturesController < ApplicationController
   before_action :ensure_logged_in, except: [
     :index, :previous_work, :pictures_by_year, :show
   ]
+  before_action :ensure_owner, only: [:edit, :update, :destroy]
 
   def index
     @pictures = Picture.recent
@@ -72,5 +73,12 @@ class PicturesController < ApplicationController
 
   def find_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def ensure_owner
+    if session[:user_id] != @picture.user_id
+      flash[:alert] = "You don't own that picture"
+      redirect_to root_path
+    end
   end
 end
