@@ -3,7 +3,7 @@
 <div class="show-pic">
   <img src="<%= @picture.url %>">
 </div>
-<p class="show-pic-artist"><%= @picture.artist %></p>
+<p class="show-pic-artist">by: <%= @picture.artist %></p>
 <% if @picture.user == current_user %>
 <p class="edit-delete-pic"><%= link_to("Edit", "/pictures/#{@picture.id}/edit") %> | <%= link_to("Delete", "/pictures/#{@picture.id}", method: :delete, data: {confirm: "Are you sure you want to delete this picture?"}) %></p>
 <% end %>
