@@ -7,20 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-  <% end %>
-  <% if flash[:alert] %>
-  <p><%= flash[:alert] %></p>
-  <% end %>
   <header>
     <div class="top-bar">
       <div class="title">
         <h1><%= link_to( "JEFF'S PHOTOGUR", root_path) %></h1>
       </div>
+      <% if flash[:notice] %>
+      <p class="flash"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+      <p class="flash"><%= flash[:alert] %></p>
+      <% end %>
       <div class="userinfo">
         <% if current_user %>
-          <p class="signedin">Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %></p>
+          <p class="signedin">Signed in as <%= current_user.email %></p>
+          <%= link_to "Log out", session_path("current"), :method => :delete %>
         <% else %>
           <p class="signedout"><%= link_to "Log in", new_session_path %><%= link_to "Sign up", new_users_path %></p>
         <% end %>
