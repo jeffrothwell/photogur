@@ -23,6 +23,12 @@ body {
   margin: 0 auto;
 }
 
+.flash {
+  position: absolute;
+  top: 128px;
+  left: 542px;
+}
+
 a {
   text-decoration: none;
 }
@@ -51,7 +57,12 @@ a:visited {
   float: left;
 }
 
-.userinfo .signedout a {
+.signedin {
+  padding: 6px 4px;
+  font-size: 10px;
+}
+
+.userinfo a {
   color: rgb(66, 137, 244);
   display: block;
   padding: 4px;
@@ -136,4 +147,10 @@ img {
 
 .show-pic {
   padding: 12px;
+}
+
+.show-pic-artist {
+  font-size: 14px;
+  font-style: italic;
+  padding: 10px 0 20px 6px;
 }
