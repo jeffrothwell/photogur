@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
 
   def pictures_by_year
     @pictures = Picture.pictures_by_year(params[:year].to_i)
+    @year = params[:year]
   end
 
   def show
