@@ -1,5 +1,13 @@
 <h1>Recent Pictures</h1>
-<% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
-<% end %>
+
+<div class="pictures-wrapper">
+  <% @pictures.each do |picture| %>
+  <div class="index-pic-wrapper">
+    <p class="index-pic-title"><%= picture.title %></p>
+    <div class="index-pic">
+      <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+    </div>
+    <p class="index-pic-artist">by: <%= picture.artist %></p>
+  </div>
+  <% end %>
+</div>

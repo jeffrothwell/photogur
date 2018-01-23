@@ -90,3 +90,42 @@ nav li {
 main {
   clear: both;
 }
+
+main h1 {
+  font-size: 22px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #a3a3a3;
+}
+
+img {
+  width: 100%;
+}
+
+.index-pic-wrapper {
+  display: block;
+  width: 32%;
+  float: left;
+  border: 2px solid #a3a3a3;
+  border-radius: 5px;
+}
+
+.index-pic-wrapper:nth-child(3n+2) {
+  margin: 0 15px;
+}
+
+.index-pic {
+  display: inline-block;
+  padding: 4px 12px;
+}
+
+.index-pic-title {
+  font-size: 16px;
+  padding: 4px;
+}
+
+.index-pic-artist {
+  font-size: 12px;
+  font-style: italic;
+  padding: 2px;
+}
