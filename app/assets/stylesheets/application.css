@@ -102,13 +102,15 @@ img {
   width: 100%;
 }
 
+.index-pic-wrapper, .show-pic {
+  border: 2px solid #a3a3a3;
+  border-radius: 5px;
+}
+
 .index-pic-wrapper {
-  display: block;
   width: 32%;
   height: 470px;
   float: left;
-  border: 2px solid #a3a3a3;
-  border-radius: 5px;
   margin-bottom: 15px;
 }
 
@@ -130,4 +132,8 @@ img {
   font-size: 12px;
   font-style: italic;
   padding: 2px;
+}
+
+.show-pic {
+  padding: 12px;
 }
